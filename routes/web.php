@@ -14,4 +14,8 @@ use App\Http\Controllers\PostController;
 |
 */
 
+// 投稿一覧
 Route::get('/', [PostController::class, 'index']);
+
+// 投稿詳細
+Route::get('/posts/{id}', [PostController::class, 'show']);
