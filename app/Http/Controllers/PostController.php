@@ -6,15 +6,24 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    private $posts = [
+        'Title A',
+        'Title B',
+        'Title C',
+    ];
+
+    // 投稿一覧
     public function index()
     {
-        $posts = [
-            'Title A',
-            'Title B',
-            'Title C',
-        ];
-        
         return view('index')
-            ->with(['posts' => $posts]);
+            ->with(['posts' => $this->posts]);
     }
+
+    // 投稿詳細
+    public function show($id)
+    {
+        return view('show')
+            ->with(['post' => $this->posts[$id]]);
+    }
+
 }
