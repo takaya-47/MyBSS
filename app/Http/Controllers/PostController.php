@@ -22,7 +22,7 @@ class PostController extends Controller
     // 投稿詳細
     public function show($id)
     {
-        return view('show')
+        return view('posts.show')
             ->with(['post' => $this->posts[$id]]);
     }
 
