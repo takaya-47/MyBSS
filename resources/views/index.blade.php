@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyBBS</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url('css/style.css') }}">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <ul>
             @forelse ($posts as $index => $post)
                 <li>
-                    <a href="/posts/{{ $index }}">
+                    <a href="{{ route('posts.show', $index) }}">
                         {{ $post }}
                     </a>
                 </li>
