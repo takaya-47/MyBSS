@@ -10,7 +10,6 @@ class PostController extends Controller
     // 投稿一覧
     public function index()
     {
-        // $posts = Post::orderBy('created_at', 'desc')->get();
         $posts = Post::latest()->get();
 
         return view('index')
@@ -20,8 +19,10 @@ class PostController extends Controller
     // 投稿詳細
     public function show($id)
     {
+        $post = Post::findOrFail($id);
+
         return view('posts.show')
-            ->with(['post' => $this->posts[$id]]);
+            ->with(['post' => $post]);
     }
 
 }
