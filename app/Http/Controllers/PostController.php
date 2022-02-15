@@ -17,10 +17,8 @@ class PostController extends Controller
     }
 
     // 投稿詳細
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('posts.show')
             ->with(['post' => $post]);
     }
