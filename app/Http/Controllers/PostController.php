@@ -23,4 +23,9 @@ class PostController extends Controller
             ->with(['post' => $post]);
     }
 
+    // 投稿作成
+    public function create()
+    {
+        return view('posts.create');
+    }
 }
