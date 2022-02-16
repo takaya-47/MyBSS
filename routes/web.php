@@ -28,6 +28,6 @@ Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create');
 
 // 投稿フォーム送信先
-Route::get('/posts/store', [PostController::class, 'store'])
+Route::post('/posts/store', [PostController::class, 'store'])
     ->name('posts.store');
 
