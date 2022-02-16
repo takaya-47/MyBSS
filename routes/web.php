@@ -22,6 +22,6 @@ Route::get('/', [PostController::class, 'index'])
 Route::get('/posts/{post}', [PostController::class, 'show'])
     ->name('posts.show');
 
-// 投稿詳細
+// 投稿作成
 Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create');
