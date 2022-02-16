@@ -10,15 +10,22 @@
         {{-- LaravelにおけるCSRF対策 --}}
         @csrf
         {{-- <input> を直接 <label> の内側に入れる場合は関連付けが明確なので、 for および id 属性は必要ない --}}
-        <label for="title">
-            Title
-            <input type="text" name="title" id="title">
-        </label>
-        <label for="body">
-            <textarea name="body" id="body"></textarea>
-        </label>
-        <button>
-            Add
-        </button>
+        <div class="form-group">
+            <label for="title">
+                Title
+                <input type="text" name="title" id="title">
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="body">
+                Body
+                <textarea name="body" id="body"></textarea>
+            </label>
+        </div>
+        <div class="form-button">
+            <button>
+                Add
+            </button>
+        </div>
     </form>
 </x-layout>
