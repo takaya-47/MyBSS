@@ -20,7 +20,8 @@ Route::get('/', [PostController::class, 'index'])
 
 // 投稿詳細
 Route::get('/posts/{post}', [PostController::class, 'show'])
-    ->name('posts.show');
+    ->name('posts.show')
+    ->where('post', '[0-9]+');
 
 // 投稿作成
 Route::get('/posts/create', [PostController::class, 'create'])
