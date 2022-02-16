@@ -6,7 +6,7 @@
         &laquo; <a href="{{ route('posts.index') }}">Back</a>
     </div>
     <h1>Add New Post</h1>
-    <form action="" method="post">
+    <form action="{{ route('posts.store') }}" method="post">
         {{-- LaravelにおけるCSRF対策 --}}
         @csrf
         {{-- <input> を直接 <label> の内側に入れる場合は関連付けが明確なので、 for および id 属性は必要ない --}}

@@ -26,3 +26,8 @@ Route::get('/posts/{post}', [PostController::class, 'show'])
 // 投稿作成
 Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create');
+
+// 投稿フォーム送信先
+Route::get('/posts/store', [PostController::class, 'store'])
+    ->name('posts.store');
+
