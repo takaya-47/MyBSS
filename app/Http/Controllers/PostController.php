@@ -31,6 +31,12 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        // バリデーションの設定
+        $request->validate([
+            'title' => 'required|min:3', // 必須。最低3文字以上。
+            'body' => 'required', // 必須
+        ]);
+
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
