@@ -8,6 +8,9 @@
     <h1>
         <span>{{ $post->title }}</span>
         <a href="{{ route('posts.edit', $post) }}">[Edit]</a>
+        <form action="" method="post">
+            <button class="btn">[x]</button>
+        </form>
     </h1>
     {{-- ****************************************************************************************************************** --}}
     {{-- bladeで改行を含むデータをHTMLに埋め込む場合の処理 --}}
