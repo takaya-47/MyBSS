@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// リクエストに対する共通処理を行うクラス
 class PostRequest extends FormRequest
 {
     /**
