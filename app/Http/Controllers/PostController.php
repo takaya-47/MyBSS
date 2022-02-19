@@ -34,7 +34,12 @@ class PostController extends Controller
         // バリデーションの設定
         $request->validate([
             'title' => 'required|min:3', // 必須。最低3文字以上。
-            'body' => 'required', // 必須
+            'body'  => 'required', // 必須
+        ], [
+            // エラーメッセージをデフォルトからオリジナルに変更
+            'title.required' => 'タイトルは必須です',
+            'title.min'      => ':min 文字以上で入力してください',
+            'body.required' => '本文は必須です',
         ]);
 
         $post = new Post();
