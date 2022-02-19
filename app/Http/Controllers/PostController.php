@@ -57,6 +57,14 @@ class PostController extends Controller
         $post->save();
 
         return redirect()
-        ->route('posts.show', $post);
+            ->route('posts.show', $post);
+    }
+
+    // 投稿削除
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()
+            ->route('posts.index');
     }
 }
