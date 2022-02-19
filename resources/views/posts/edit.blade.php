@@ -6,7 +6,9 @@
         &laquo; <a href="{{ route('posts.show', $post) }}">Back</a>
     </div>
     <h1>Edit Post</h1>
-    <form action="" method="post">
+    <form action="{{ route('posts.update', $post) }}" method="post">
+        {{-- formタグはpatchに対応していないのでpostとしておき、下でhttpメソッドを指定してあげる --}}
+        @method('patch')
         {{-- LaravelにおけるCSRF対策 --}}
         @csrf
         {{-- <input> を直接 <label> の内側に入れる場合は関連付けが明確なので、 for および id 属性は必要ないけど一応。 --}}

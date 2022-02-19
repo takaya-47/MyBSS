@@ -29,6 +29,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    // 投稿フォーム送信先
     public function store(Request $request)
     {
         // バリデーションの設定
@@ -51,9 +52,32 @@ class PostController extends Controller
             ->route('posts.index');
     }
 
+    // 投稿編集
     public function edit(Post $post)
     {
         return view('posts.edit')
             ->with(['post' => $post]);
+    }
+
+    // 投稿編集フォーム送信先
+    public function update(Request $request, Post $post)
+    {
+        // バリデーションの設定
+        $request->validate([
+            'title' => 'required|min:3', // 必須。最低3文字以上。
+            'body'  => 'required', // 必須
+        ], [
+            // エラーメッセージをデフォルトからオリジナルに変更
+            'title.required' => 'タイトルは必須です',
+            'title.min'      => ':min 文字以上で入力してください',
+            'body.required' => '本文は必須です',
+        ]);
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect()
+        ->route('posts.show', $post);
     }
 }
