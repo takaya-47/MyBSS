@@ -8,7 +8,10 @@
     <h1>
         <span>{{ $post->title }}</span>
         <a href="{{ route('posts.edit', $post) }}">[Edit]</a>
-        <form action="" method="post">
+        <form action="{{ route('posts.destroy', $post) }}" method="post">
+            @method("DELETE")
+            @csrf
+            
             <button class="btn">[x]</button>
         </form>
     </h1>
