@@ -13,17 +13,17 @@
         <div class="form-group">
             <label for="title">
                 Title
-                <input type="text" name="title" id="title">
+                <input type="text" name="title" id="title" value="{{ old('title') }}">
             </label>
             {{-- // バリデーションに引っかかった時のエラーメッセージ --}}
             @error('title')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="body">
                 Body
-                <textarea name="body" id="body"></textarea>
+                <textarea name="body" id="body">{{ old('body') }}</textarea>
             </label>
             {{-- // バリデーションに引っかかった時のエラーメッセージ --}}
             @error('body')
