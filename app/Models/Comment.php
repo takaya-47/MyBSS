@@ -13,4 +13,13 @@ class Comment extends Model
         'post_id',
         'body',
     ];
+
+    /**
+     * Commentsテーブルのレコードに関連するPostテーブルのレコードを取得します
+     * （使い方） $comment->post
+     */
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

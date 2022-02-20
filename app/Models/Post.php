@@ -13,4 +13,13 @@ class Post extends Model
         'title',
         'body',
     ];
+
+    /**
+     * Postsテーブルのレコードに関連するCommentsテーブルのレコードを取得します
+     * （使い方） $post->comments
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
