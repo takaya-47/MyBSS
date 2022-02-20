@@ -15,7 +15,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id'); // 外部キーとなるカラム
+            $table->string('body');
             $table->timestamps();
+            $table
+                ->foreign('post_id') // postsテーブルに存在しないidがcommentsテーブルに入り込まないように外部キー制約をかける
+                ->references('id') // postsテーブルのidと紐づける(下のonメソッドとセット)
+                ->on('posts')
+                ->onDelete('cascade'); // 主キーのレコードが削除されたら外部キーのcommentsテーブルのレコードも削除されるように。
         });
     }
 
