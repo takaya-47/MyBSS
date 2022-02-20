@@ -22,10 +22,24 @@
     {{-- ****************************************************************************************************************** --}}
     <p>{!! nl2br(e($post->body)) !!}</p>
 
+    <h2>Comments</h2>
+    <ul>
+        <li>
+            <form action="" method="post" class="comment-form">
+                @csrf
+
+                <input type="text" name="body">
+                <button>Add</button>
+            </form>
+        </li>
+        @foreach ($post->comments as $comment)
+            <li>{{ $comment->body }}</li>
+        @endforeach
+    </ul>
+
     <script>
-        'use strict';
-        {
-            document.getElementById("delete_post").addEventListener('submit', (e) =>{
+        'use strict'; {
+            document.getElementById("delete_post").addEventListener('submit', (e) => {
                 // ページ遷移などを防ぐためpreventDefaultを使う
                 e.preventDefault();
 
@@ -36,7 +50,6 @@
                 // 「OK」を選択したときは削除処理に進む
                 e.target.submit();
             });
-
         }
     </script>
 </x-layout>
