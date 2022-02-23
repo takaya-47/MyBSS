@@ -32,22 +32,27 @@ Route::get('/posts/create', [PostController::class, 'create'])
 Route::post('/posts/store', [PostController::class, 'store'])
     ->name('posts.store');
 
-    // 投稿編集
+// 投稿編集
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
-->name('posts.edit')
-->where('post', '[0-9]+');
+    ->name('posts.edit')
+    ->where('post', '[0-9]+');
 
 // 投稿編集フォーム送信先
 Route::patch('/posts/{post}/update', [PostController::class, 'update'])
-->name('posts.update')
-->where('post', '[0-9]+');
+    ->name('posts.update')
+    ->where('post', '[0-9]+');
 
 // 投稿削除
 Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
-->name('posts.destroy')
-->where('post', '[0-9]+');
+    ->name('posts.destroy')
+    ->where('post', '[0-9]+');
 
 // コメント投稿フォーム送信先
 Route::post('/posts/{post}/comments', [CommentController::class, 'store'])
-->name('comments.store')
-->where('post', '[0-9]+');
+    ->name('comments.store')
+    ->where('post', '[0-9]+');
+
+// コメント削除
+Route::delete('/comments/{comment}/destroy', [CommentController::class, 'destroy'])
+    ->name('comments.destroy')
+    ->where('comment', '[0-9]+');
