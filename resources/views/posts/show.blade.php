@@ -32,7 +32,8 @@
                 <button>Add</button>
             </form>
         </li>
-        @foreach ($post->comments()->latest()->get() as $comment)
+        @foreach ($post->comments()->latest()->get()
+    as $comment)
             <li>
                 {{ $comment->body }}
                 <form action="{{ route('comments.destroy', $comment) }}" method="post" class="delete-comment">
@@ -57,6 +58,17 @@
                 }
                 // 「OK」を選択したときは削除処理に進む
                 e.target.submit();
+            });
+
+            document.querySelectorAll('.delete-comment').forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    if (!confirm("本当に削除しますか？")) {
+                        return;
+                    }
+                    form.submit();
+                })
             });
         }
     </script>
