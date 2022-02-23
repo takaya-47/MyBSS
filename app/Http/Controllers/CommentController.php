@@ -9,7 +9,6 @@ use App\Models\Comment;
 class CommentController extends Controller
 {
     public function store(Request $request, Post $post) {
-        // TODO: Postコントローラーのようにバリデーション用のクラスを作る
         $request->validate([
             'body' => 'required',
         ]);
